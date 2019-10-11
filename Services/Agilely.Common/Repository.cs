@@ -37,35 +37,7 @@ namespace Agilely.Common
             return createdEntity;
         }
 
-        public void Delete(Expression<Func<T, bool>> filter)
-        {
-            Check.NotNull(filter, nameof(filter));
-
-            var entities = Get(filter);
-            if (entities == null)
-                throw new Exception("No entities found for deletion.");
-
-            _context.Set<T>().AttachRange(entities);
-            _context.Set<T>().RemoveRange(entities);
-
-            _context.SaveChanges();
-        }
-
-        public async Task DeleteAsync(Expression<Func<T, bool>> filter)
-        {
-            Check.NotNull(filter, nameof(filter));
-
-            var entities = await GetAsync(filter);
-            if (entities == null)
-                throw new Exception("No entities found for deletion.");
-
-            _context.Set<T>().AttachRange(entities);
-            _context.Set<T>().RemoveRange(entities);
-
-            await _context.SaveChangesAsync();
-        }
-
-        public void Delete(object id)
+        public bool Delete(object id)
         {
             Check.NotNull(id, nameof(id));
 
@@ -73,10 +45,10 @@ namespace Agilely.Common
             if (entity == null)
                 throw new Exception($"No entity found with id {id}");
 
-            Delete(entity);
+            return Delete(entity);
         }
 
-        public async Task DeleteAsync(object id)
+        public async Task<bool> DeleteAsync(object id)
         {
             Check.NotNull(id, nameof(id));
 
@@ -84,10 +56,10 @@ namespace Agilely.Common
             if (entity == null)
                 throw new Exception($"No entity found with id {id}");
 
-            await DeleteAsync(entity);
+            return (await DeleteAsync(entity));
         }
 
-        public void Delete(T entity)
+        public bool Delete(T entity)
         {
             Check.NotNull(entity, nameof(entity));
 
@@ -98,10 +70,10 @@ namespace Agilely.Common
             }
 
             dbSet.Remove(entity);
-            _context.SaveChanges();
+            return _context.SaveChanges() == 1;
         }
 
-        public async Task DeleteAsync(T entity)
+        public async Task<bool> DeleteAsync(T entity)
         {
             Check.NotNull(entity, nameof(entity));
 
@@ -112,7 +84,7 @@ namespace Agilely.Common
             }
 
             dbSet.Remove(entity);
-            await _context.SaveChangesAsync();
+            return (await _context.SaveChangesAsync()) == 1;
         }
 
         public T Update(T entity)
