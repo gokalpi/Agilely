@@ -5,9 +5,33 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B2E8F61C-F958-4CE8-9E11-364E68DFAC4E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Agilely.BoardApi", "Services\Agilely.BoardApi\Agilely.BoardApi.csproj", "{D69ACE7E-A28F-4C3E-8D6A-32102544D4C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{986FF466-C64C-4080-B220-9F9D1F3861A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agilely.Common", "Services\Agilely.Common\Agilely.Common.csproj", "{551D2546-CD16-45F4-9183-5CD51BF79EE7}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D69ACE7E-A28F-4C3E-8D6A-32102544D4C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D69ACE7E-A28F-4C3E-8D6A-32102544D4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D69ACE7E-A28F-4C3E-8D6A-32102544D4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D69ACE7E-A28F-4C3E-8D6A-32102544D4C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{551D2546-CD16-45F4-9183-5CD51BF79EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551D2546-CD16-45F4-9183-5CD51BF79EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551D2546-CD16-45F4-9183-5CD51BF79EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551D2546-CD16-45F4-9183-5CD51BF79EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D69ACE7E-A28F-4C3E-8D6A-32102544D4C3} = {B2E8F61C-F958-4CE8-9E11-364E68DFAC4E}
+		{551D2546-CD16-45F4-9183-5CD51BF79EE7} = {B2E8F61C-F958-4CE8-9E11-364E68DFAC4E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7CB4D9FD-4FE3-4C01-84F5-031EF180730E}

@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Services/Agilely.BoardApi/Logs/log_20191011.txt
